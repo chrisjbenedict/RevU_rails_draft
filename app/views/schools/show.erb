@@ -1,0 +1,28 @@
+<p><%= link_to "Home", schools_path %></p>
+
+<h1><%= @school.name %></h1>
+<p><%= @school.location %></p>
+
+<h3>Reviews: </h3>
+<div class="sort">
+  <ul style="list-style: none;">
+    <li class="dropdown">
+      <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Sort by category</a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <% @categories.each do |category| %>
+        <a class="dropdown-item"><%= link_to category.name, categories_path(order: 'name') %></a>
+        <div class="dropdown-divider"></div>
+        <% end %>
+      </div>
+    </li> 
+  </ul>
+</div>
+<ul>
+  <% @school.reviews.each do |review| %>
+    <li><%= link_to "#{review.student.full_name}",  student_path(review.student) %> says this about <%= review.category.name.downcase %>:</li>
+      <ul>
+        <li><%= review.content %></li>
+        <%= link_to "...more", review_path(review) %>
+      </ul><br>
+  <% end %>
+</ul>

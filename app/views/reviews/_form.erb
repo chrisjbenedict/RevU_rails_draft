@@ -1,0 +1,21 @@
+<%= form_for @review do |f| %>
+  <ul>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+  <% end %>
+  </ul>
+
+  <%= f.label :student %>
+  <%= f.collection_select :student_id, @students, :id, :full_name %><br><br>
+  <%= f.label :school %>
+  <%= f.collection_select :school_id, @schools, :id, :name %><br><br>
+  <%= f.label :category %>
+  <%= f.collection_select :category_id, @categories, :id, :name %><br><br>
+  <%= f.label :content %>
+  <%= f.text_area :content %><br><br>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %><br><br>
+  <%= f.submit %><br>
+<% end %>

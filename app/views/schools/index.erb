@@ -1,0 +1,42 @@
+<p><%= link_to "Write a Review", "/reviews/new" %> or <%= link_to "Register", new_student_path %></p>
+
+
+<div class="suggested-schools">
+  <div class="sort">
+    <ul style="list-style: none;">
+      <li class="dropdown">
+        <h4>Suggestions:</h4><a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Sort schools</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"><%= link_to "Name", schools_path(order: 'name') %></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item"><%= link_to "Size", schools_path(order: 'size') %></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item"><%= link_to "Location", schools_path(order: 'location') %></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+  <div>
+  <% @schools.each do |school| %>
+    <h4></h4>
+    <ul style="list-style: none;">
+      <li class="dropdown">
+        <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+        <%= link_to school.name, "/schools/#{school.id}" %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item">Location: <%= school.location %></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item">Size: <%= school.size %></a>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

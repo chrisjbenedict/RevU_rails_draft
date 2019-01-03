@@ -1,0 +1,10 @@
+
+<%= link_to "Home", schools_path %>
+<h1><%= @review.school.name %></h1>
+
+<h4>Category: <%= @review.category.name %><br> Rating: <%= @review.rating %></h4>
+<h5><%= "#{@review.student.full_name} says:" %></h5>
+<p><%= @review.content %></p>
+
+<%= button_to "Edit Review", edit_review_path(@review), method: "get" %>
+<%= button_to "Delete Review", @review, method: "delete" %>

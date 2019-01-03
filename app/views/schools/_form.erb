@@ -1,0 +1,21 @@
+<%= form_for @student do |f| %>
+  <ul>
+    <% if @errors %>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+  <% end %>
+  </ul>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br>
+  <%= f.label :age %>
+  <%= f.number_field :age %><br>
+  <%= f.label :username %>
+  <%= f.text_field :username %><br>
+  <%= f.label :password %>
+  <%= f.text_field :password %><br><br>
+  <%= f.submit %>
+<% end %>
