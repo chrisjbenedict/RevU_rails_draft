@@ -1,0 +1,7 @@
+
+
+<h3>Search Results:</h3>
+<br><br>
+<% @results.each do |result| %>
+  <h4><%= link_to result.name, "/schools/#{result.id}" %><br></h4>
+<% end %>

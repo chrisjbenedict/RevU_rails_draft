@@ -13,8 +13,6 @@ class SchoolsController < ApplicationController
 
   def show
     find_school
-    # @reviews = Review.all
-    # @review = Review.find(params[:id])
     @student = Student.find(params[:id])
     @categories = Category.all
   end
@@ -41,6 +39,6 @@ class SchoolsController < ApplicationController
   end
 
   def school_params
-    params.require(:school).permit(:name, :location, :size, :university)
+    params.require(:school).permit(:name, :location, :size, :university, :search)
   end
 end

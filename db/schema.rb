@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2018_12_31_153633) do
     t.string "location"
     t.integer "size"
     t.boolean "university"
+    t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

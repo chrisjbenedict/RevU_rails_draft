@@ -1,4 +1,6 @@
-<%= form_for @review do |f| %>
+<br><br><%= form_for @review do |f| %>
+  <h1>Rev<span>U</span></h1><br>
+  <h1 class="h3 mb-3 font-weight-normal">Write a review!</h1>
   <ul>
     <% if flash[:errors] %>
       <% flash[:errors].each do |error| %>
@@ -7,15 +9,40 @@
   <% end %>
   </ul>
 
-  <%= f.label :student %>
-  <%= f.collection_select :student_id, @students, :id, :full_name %><br><br>
-  <%= f.label :school %>
-  <%= f.collection_select :school_id, @schools, :id, :name %><br><br>
-  <%= f.label :category %>
-  <%= f.collection_select :category_id, @categories, :id, :name %><br><br>
-  <%= f.label :content %>
-  <%= f.text_area :content %><br><br>
+
+  <%= f.collection_select :student_id, @students, :id, :full_name, prompt: 'student'%><br><br>
+  <%= f.collection_select :school_id, @schools, :id, :name, prompt: 'school' %><br><br>
+  <%= f.collection_select :category_id, @categories, :id, :name, prompt: 'category' %><br><br>
+  <%= f.text_area :content, placeholder: :review%><br><br>
   <%= f.label :rating %>
-  <%= f.number_field :rating %><br><br>
+  <%= f.select :rating, [1, 2, 3, 4, 5]%><br><br>
   <%= f.submit %><br>
 <% end %>
+
+<body class="text-center">
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      /* display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex; */
+      -ms-flex-align: center;
+      -ms-flex-pack: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      /* padding-top: 40px; */
+      /* padding-bottom: 40px; */
+      background-color: #f5f5f5;
+      /* background-image: url("https://images.unsplash.com/photo-1518600654093-2a24cddafa38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1117&q=80"); */
+    }
+
+  </style>
+
+
+</body>

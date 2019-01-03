@@ -1,26 +1,80 @@
-<p><%= link_to "Write a Review", "/reviews/new" %> or <%= link_to "Register", new_student_path %></p>
+<style>
+
+.jumbotron .container {
+    max-width: 40rem;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 
-<div class="suggested-schools">
-  <div class="sort">
-    <ul style="list-style: none;">
-      <li class="dropdown">
-        <h4>Suggestions:</h4><a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Sort schools</a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item"><%= link_to "Name", schools_path(order: 'name') %></a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item"><%= link_to "Size", schools_path(order: 'size') %></a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item"><%= link_to "Location", schools_path(order: 'location') %></a>
+</style>
+
+
+
+
+
+<main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading"><h1>Rev<span>U</span> A School</h1>
+            <p class="lead text-muted">Currently, RevU is limited to providing access to reviews for the Ivy League because it only has 7 schools and I am not a machine.</p>
+            <p>
+              <a href="<%= "/reviews/new" %>" class="btn btn-primary my-2">Write a Review</a>
+              <a href="<%= new_student_path %>" class="btn btn-secondary my-2">Register</a>
+            </p>
         </div>
-      </li>
-    </ul>
-  </div>
+      </section>
+
+      <div class="suggested-schools">
+        <div class="sort">
+          <ul style="list-style: none;">
+            <li class="dropdown">
+              <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Sort schools</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item"><%= link_to "Name", schools_path(order: 'name') %></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item"><%= link_to "Size", schools_path(order: 'size') %></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item"><%= link_to "Location", schools_path(order: 'location') %></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      <div class="row">
+        <% @schools.each do |school| %>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="<%= school.img_url %>" data-holder-rendered="true">
+              <div class="card-body">
+                <p class="card-text"><%= link_to school.name, "/schools/#{school.id}" %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "view reviews", "/schools/#{school.id}" %></button>
+                    <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                  </div>
+                  <!-- <small class="text-muted">9 mins</small> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </main>
+<!-- ________________________________________________________________________________ -->
 
 
-  <div>
+
+  <!-- <div>
   <% @schools.each do |school| %>
-    <h4></h4>
     <ul style="list-style: none;">
       <li class="dropdown">
         <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
@@ -34,8 +88,8 @@
       </li>
     </ul>
   <% end %>
-  </div>
-</div>
+  </div> -->
+<!-- </div> -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -11,5 +11,10 @@ Rails.application.routes.draw do
   get '/revu', to: 'schools#welcome'
   get '/home', to: 'schools#home'
   resources :students
+  get '/search' => 'pages#search', :as => 'search_page'
+
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/login', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

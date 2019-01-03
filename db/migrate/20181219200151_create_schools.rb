@@ -5,6 +5,7 @@ class CreateSchools < ActiveRecord::Migration[5.2]
       t.string :location
       t.integer :size
       t.boolean :university
+      t.string :img_url
 
       t.timestamps
     end
