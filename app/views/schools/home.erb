@@ -25,8 +25,13 @@
               <div class="carousel-caption text-left">
                 <h1>Honest, unpolished reviews</h1>
                 <!-- <p>In today's world of unlimited information, why is it that we continue make our college choice without knowing everything about it?</p> -->
+                <% if !current_user %>
                 <p><a class="btn btn-lg btn-primary" href=<%= new_student_path %> role="button">Sign up</a>
                   <a class="btn btn-lg btn-primary" href=<%= login_path %> role="button">Login</a></p>
+                <% else %>
+                <p><a class="btn btn-lg btn-primary" href=<%= schools_path %> role="button">Sign up</a>
+                  <a class="btn btn-lg btn-primary" href=<%= schools_path %> role="button">Login</a></p>
+                <% end %>
               </div>
             </div>
           </div>
