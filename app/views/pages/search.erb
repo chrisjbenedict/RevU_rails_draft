@@ -2,6 +2,13 @@
 
 <h3>Search Results:</h3>
 <br><br>
-<% @results.each do |result| %>
-  <h4><%= link_to result.name, "/schools/#{result.id}" %><br></h4>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error|%>
+    <%= error %>
+  <% end %>
 <% end %>
+<ul>
+  <% @results.each do |result| %>
+    <li><h4><%= link_to result.name, "/schools/#{result.id}" %><br></h4></li>
+  <% end %>
+</ul>

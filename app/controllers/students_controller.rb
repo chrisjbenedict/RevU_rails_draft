@@ -1,8 +1,5 @@
 class StudentsController < ApplicationController
-
-  def show
-    find_student
-  end
+  skip_before_action :authorized, only: [:new, :create, :home, :show, :welcome]
 
   def new
     @student = Student.new
@@ -11,11 +8,16 @@ class StudentsController < ApplicationController
   def create
     @student = Student.create(student_params)
     if @student.valid?
+      session[:student_id] = @student.id
       redirect_to @student
     else
       @errors = @student.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    find_student
   end
 
   def edit

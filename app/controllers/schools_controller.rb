@@ -1,4 +1,5 @@
 class SchoolsController < ApplicationController
+  skip_before_action :authorized, only: [:home, :welcome]
 
   def revu
     render :welcome

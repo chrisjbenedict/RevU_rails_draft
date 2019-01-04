@@ -1,0 +1,27 @@
+<!-- <style>
+
+  h3, .login {
+    text-align: center;
+  }
+
+  form-tag {
+    text-align: center;
+  }
+
+</style> -->
+
+<h3 class="h3 mb-3 font-weight-normal">Login</h3>
+
+<h4 class="login"><%= flash[:notice] %></h4>
+
+<%= form_tag(login_path)do %>
+
+  <%= label_tag :username %>
+  <%= text_field_tag :username %><br>
+
+  <%= label_tag :password %>
+  <%= password_field_tag :password %><br>
+
+  <%= submit_tag 'Login' %>
+
+<% end %>

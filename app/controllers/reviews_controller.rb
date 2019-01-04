@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
 
   def show
     find_review
+    @students = Student.all
   end
 
   def new
@@ -19,6 +20,7 @@ class ReviewsController < ApplicationController
     @review = Review.create(review_params)
     @students = Student.all
     @schools = School.all
+    @review.update(student_id: session[:student_id])
     if @review.valid?
       redirect_to @review
     else
@@ -43,7 +45,7 @@ class ReviewsController < ApplicationController
   def destroy
     find_review
     @review.destroy
-    @school = School.find(params[:id])
+    @schools = School.all
     redirect_to schools_path
   end
 
@@ -54,7 +56,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:student_id, :school_id, :category_id, :content, :rating)
+    params.require(:review).permit(:school_id, :category_id, :content, :rating)
   end
 
   def edit_review_params

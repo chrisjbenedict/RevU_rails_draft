@@ -7,8 +7,8 @@
       </div>
 <h1></h1>
 
-<h5><%= "#{@review.student.full_name} says:" %></h5>
-<p><%= @review.content %></p>
+<p><%= link_to @review.student.full_name, "/students/#{@review.student.id}"%> says:</p>
+<h4>"<%= @review.content %>"</h4>
 <p>Rating: <%= @review.rating %></p>
 
 <%= button_to "Edit Review", edit_review_path(@review), method: "get" %>

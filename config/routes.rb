@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'session/new'
-  get 'session/cw'
+  # get 'session/cw'
   get 'session/create'
   get 'session/destroy'
   resources :school_categories
@@ -15,6 +15,6 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

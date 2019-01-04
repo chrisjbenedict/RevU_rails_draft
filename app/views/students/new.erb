@@ -1,5 +1,9 @@
 <br><br>
-<%= render 'form' %>
+<% if current_user %>
+  <h5>You are already registered. Please log out to create a new user.</h5>
+<% else %>
+  <%= render 'form' %>
+<% end %>
 
 <!--
 <body class="text-center">

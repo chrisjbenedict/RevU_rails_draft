@@ -10,12 +10,11 @@
   </ul>
 
 
-  <%= f.collection_select :student_id, @students, :id, :full_name, prompt: 'student'%><br><br>
   <%= f.collection_select :school_id, @schools, :id, :name, prompt: 'school' %><br><br>
   <%= f.collection_select :category_id, @categories, :id, :name, prompt: 'category' %><br><br>
-  <%= f.text_area :content, placeholder: :review%><br><br>
+  <%= f.text_area :content, placeholder: :review, class: :content%><br><br>
   <%= f.label :rating %>
-  <%= f.select :rating, [1, 2, 3, 4, 5]%><br><br>
+  <%= f.select :rating, [1, 2, 3, 4, 5], placeholder: :rating%><br><br>
   <%= f.submit %><br>
 <% end %>
 
@@ -24,6 +23,10 @@
     html,
     body {
       height: 100%;
+    }
+
+    .content {
+      width: 30%;
     }
 
     body {
