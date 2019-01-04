@@ -30,6 +30,14 @@ class SchoolsController < ApplicationController
     end
   end
 
+  def average_rating
+    find_school
+    scores_arr = @school.reviews.map do |review|
+      review.rating
+    end
+    scores_arr.inject{ |sum, el| sum + el}.to_f / scores_arr.size
+  end
+
   # def add_to_favorites
   # end
 

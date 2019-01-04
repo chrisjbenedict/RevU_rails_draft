@@ -29,7 +29,7 @@
         </div>
       </section>
 
-      <div class="suggested-schools">
+      <!-- <div class="suggested-schools">
         <div class="sort">
           <ul style="list-style: none;">
             <li class="dropdown">
@@ -43,13 +43,25 @@
               </div>
             </li>
           </ul>
-        </div>
+        </div> -->
+<!--
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary">Sort Schools</button>
+          <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#"><%= link_to "Name", schools_path(order: 'name') %></a>
+            <a class="dropdown-item" href="#"><%= link_to "Size", schools_path(order: 'size') %></a>
+            <a class="dropdown-item" href="#"><%= link_to "Location", schools_path(order: 'location') %></a>
+          </div>
+        </div><br> -->
 
       <div class="row">
         <% @schools.each do |school| %>
           <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="<%= school.img_url %>" data-holder-rendered="true">
+              <a href="<%= school_path(school) %>"><img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="<%= school.name %>" style="height: 230px; width: 100%; display: block;" src="<%= school.img_url %>" data-holder-rendered="true"></a>
               <div class="card-body">
                 <p class="card-text"><%= link_to school.name, "/schools/#{school.id}" %></p>
                 <div class="d-flex justify-content-between align-items-center">

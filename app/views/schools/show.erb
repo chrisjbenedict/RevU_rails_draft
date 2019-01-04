@@ -1,8 +1,21 @@
-
 <div class="jumbotron p-3 p-md-5 text-white bg-dark">
   <div class="col-md-6 px-0">
     <h1 class="display-4 font-italic"><%= @school.name %></h1>
     <p class="lead my-3"><%= @school.location %></p>
+    <% if @school.reviews.count == 1 %>
+      <p class="ratings"><%= @school.reviews.count %> review</p>
+    <% else %>
+      <p class="ratings"><%= @school.reviews.count %> reviews</p>
+    <% end %>
+    <% scores_arr = @school.reviews.map do |review| %>
+      <% review.rating %>
+    <% end %>
+    <% average_rating = (scores_arr.inject{ |sum, el| sum + el}.to_f / scores_arr.size).round(2) %>
+    <% if average_rating > 0 %>
+      <p class="ratings">Average Rating: <%= average_rating %></p>
+    <% else %>
+      <p class="ratings"><%= @school.name %> needs reviews!</p>
+    <% end %>
   </div>
 </div>
 

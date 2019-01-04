@@ -2,9 +2,9 @@
   <div class="col-md-6 px-0">
     <h1 class="display-4 font-italic"><%= @student.full_name %></h1>
     <% if current_user.id == @student.id %>
-      <p class="lead my-3"><%= link_to "Edit Account", edit_student_path %></p>
-      <p class="lead my-3"><%= link_to "Delete Account", @student, method: "delete",
-                              data: { confirm: "Are you sure you want to delete your account?"} %></p>
+      <div class="mb-1 text-muted"><%= link_to "Edit Account", edit_student_path %></div>
+      <div class="mb-1 text-muted"><%= link_to "Delete Account", @student, method: "delete",
+                              data: { confirm: "Are you sure you want to delete your account?"} %></div><br>
       <p class="lead my-3"><%= link_to "Write a New Review, #{@student.first_name}!", new_review_path %></p>
     <% end %>
   </div>

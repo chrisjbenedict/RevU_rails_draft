@@ -1,23 +1,13 @@
-<!-- <style>
-
-  h3, .login {
-    text-align: center;
-  }
-
-  form-tag {
-    text-align: center;
-  }
-
-</style> -->
-
-<h3 class="h3 mb-3 font-weight-normal">Login</h3>
+<br><br>
+<h1>Rev<span>U</span></h1><br>
+<h3 class="h3 mb-3 font-weight-normal">Student Login</h3>
 
 <h4 class="login"><%= flash[:notice] %></h4>
 
 <%= form_tag(login_path)do %>
 
   <%= label_tag :username %>
-  <%= text_field_tag :username %><br>
+  <%= text_field_tag :username%><br>
 
   <%= label_tag :password %>
   <%= password_field_tag :password %><br>
@@ -25,3 +15,35 @@
   <%= submit_tag 'Login' %>
 
 <% end %>
+
+<body class="text-center">
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    .content {
+      width: 30%;
+    }
+
+    body {
+      /* display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex; */
+      -ms-flex-align: center;
+      -ms-flex-pack: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      /* padding-top: 40px; */
+      /* padding-bottom: 40px; */
+      background-color: #f5f5f5;
+      /* background-image: url("https://images.unsplash.com/photo-1518600654093-2a24cddafa38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1117&q=80"); */
+    }
+
+  </style>
+
+
+</body>
