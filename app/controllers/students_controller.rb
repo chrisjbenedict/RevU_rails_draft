@@ -33,6 +33,13 @@ class StudentsController < ApplicationController
     end
   end
 
+  def destroy
+    find_student
+    @student.destroy
+    @schools = School.all
+    redirect_to schools_path
+  end
+
   private
 
   def find_student

@@ -22,16 +22,23 @@
             <li class="nav-item active">
               <a class=<%= "nav-link" %> href=<%= "/home" %>>Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href=<%= schools_path %>>Schools</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=<%= new_student_path %>>Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=<%= new_review_path %>>Write a Review</a>
-            </li>
-            <li class="nav-item dropdown">
+            <% if !current_user %>
+              <li class="nav-item">
+                <a class="nav-link" href=<%= login_path %>>Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=<%= new_student_path %>>Register</a>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <a class="nav-link" href=<%= schools_path %>>Schools</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=<%= new_review_path %>>Write a Review</a>
+              </li>
+
+<!--------------------------------------- Favorites Dropdown Not Ready ------------------------------------>
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Favorites
               </a>
@@ -42,10 +49,14 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/schools">more schools</a>
               </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=<%= logout_path %>>Log Out</a>
-            </li>
+            </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href=<%= student_path(current_user.id)%>>My Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=<%= logout_path %>>Log Out</a>
+              </li>
+            <% end %>
           </ul>
           <!-- <form class="form-inline my-2 my-lg-0"> -->
             <%= form_tag(search_page_path, :method => "get", class: "form-inline my-2 my-lg-0") do %>
